@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.List;
 //import javax.persistence.OneToMany;
 
 
@@ -31,14 +33,13 @@ public class CartItem {
             this.customer = customer;
         }
 
-    
-    String pet;
-
-        public String getPet() {
-            return pet;
+    @OneToMany
+    List<Item> items;
+        public List<Item> getItems() {
+            return items;
         }
-        public void setPet(String pet) {
-            this.pet = pet;
+        public void setItems(List<Item> items) {
+            this.items = items;
         }
 
     @Embedded

@@ -1,6 +1,4 @@
-package com.example.petstore;
-
-import com.example.petstore.domain.Dog;
+package com.example.petstore.domain;
 
 import org.springframework.data.repository.CrudRepository;
 

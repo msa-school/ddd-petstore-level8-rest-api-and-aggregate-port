@@ -118,7 +118,6 @@ public class PetApplication {
 			return message;
 		}
 
-
 		return "그루밍이 불가능한 Pet 입니다";
 	}
 
