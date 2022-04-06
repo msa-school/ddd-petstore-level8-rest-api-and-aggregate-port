@@ -11,11 +11,13 @@ import java.util.stream.Stream;
 
 
 import com.example.petstore.domain.*;
-import com.h2.examples.H2FileDatabaseExample;
+import com.example.petstore.kafka.KafkaProcessor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.hateoas.Link;
@@ -73,12 +75,12 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 @EnableAspectJAutoProxy
-
+@EnableBinding(KafkaProcessor.class)
 public class PetApplication {
 
 //	static HashMap<String, Pet> pets = new HashMap<String, Pet>();
     static String[] names={"젤리","대박이","감자","사랑","자몽이","꼬맹이","몽이","모리","하리","해피","하트","콩","태양"};
-
+	public static ApplicationContext applicationContext;
 	public static void main(String[] args) {
 
 		Pet pet = new Dog();
@@ -91,7 +93,7 @@ public class PetApplication {
 		pet.sleep();
 		System.out.println("energy is " + pet.getEnergy());
 
-		SpringApplication.run(PetApplication.class, args);
+		applicationContext = SpringApplication.run(PetApplication.class, args);
 	}
 
 

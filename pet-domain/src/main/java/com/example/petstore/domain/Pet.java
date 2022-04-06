@@ -1,13 +1,11 @@
 package com.example.petstore.domain;
 
+import org.springframework.beans.BeanUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @DiscriminatorColumn(
@@ -18,7 +16,7 @@ import javax.persistence.Id;
 public abstract class Pet {     // Entity. Domain Class.
 
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy=GenerationType.AUTO)
     Long id;    
         public Long getId() {
             return id;
@@ -50,10 +48,19 @@ public abstract class Pet {     // Entity. Domain Class.
             this.type = type;
         }
 
-        
+
     abstract public void speak();
 
-
+    @PostPersist
+    public void onPostPersist(){
+        PetReserved petReserved = new PetReserved();
+        petReserved.setAppearance(this.getAppearance());
+        petReserved.setEnergy(this.getEnergy());
+        petReserved.setId(this.getId());
+        petReserved.setName(this.getName());
+        petReserved.setType(this.getType());
+        petReserved.publishAfterCommit();
+    }
         
     // List<Listener> listeners = new ArrayList<Listener>();
     // public void addListener(Listener listener) {

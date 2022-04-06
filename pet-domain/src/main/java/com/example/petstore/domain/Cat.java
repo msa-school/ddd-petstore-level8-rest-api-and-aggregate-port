@@ -3,8 +3,11 @@ package com.example.petstore.domain;
 
 
 
+import org.springframework.beans.BeanUtils;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PostPersist;
 
 @Entity
 @DiscriminatorValue("cat")
