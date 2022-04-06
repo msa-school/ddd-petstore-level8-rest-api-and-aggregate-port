@@ -5,7 +5,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Money {
 
-    Currency currency;
+    Currency currency = Currency.KR_WON;   //"KR_WON", "KRWON"
     Double amount;
 
     public Currency getCurrency() {

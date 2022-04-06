@@ -32,6 +32,7 @@ public abstract class Pet {     // Entity. Domain Class.
             this.appearance = appearance;
         }
 
+
     String name; 
         public String getName() {
             return name;
