@@ -21,7 +21,7 @@ public class Dog extends Pet implements Runnable {
     @Override
     public void eat() {
         
-        setEnergy(getEnergy() + 1);
+        setEnergy(getEnergy() + 2);
 
     }
 

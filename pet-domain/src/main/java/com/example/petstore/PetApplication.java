@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Stream;
 
-import com.example.petstore.domain.Groomable;
-import com.example.petstore.domain.Pet;
+
+import com.example.petstore.domain.*;
 import com.h2.examples.H2FileDatabaseExample;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,8 +80,16 @@ public class PetApplication {
     static String[] names={"젤리","대박이","감자","사랑","자몽이","꼬맹이","몽이","모리","하리","해피","하트","콩","태양"};
 
 	public static void main(String[] args) {
-		// pets.put(Dog.class.getSimpleName().toLowerCase(), new Dog());
-		// pets.put(Cat.class.getSimpleName().toLowerCase(), new Cat());
+
+		Pet pet = new Dog();
+
+		System.out.println("energy is " + pet.getEnergy());
+
+		pet.eat();
+		System.out.println("energy is " + pet.getEnergy());
+
+		pet.sleep();
+		System.out.println("energy is " + pet.getEnergy());
 
 		SpringApplication.run(PetApplication.class, args);
 	}
