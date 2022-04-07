@@ -66,7 +66,7 @@ mvn spring-boot:run
 - 유저를 한 명 등록해 줍니다.
 
 ```javascript
-http localhost:8083/customers id="park@naver.com" address:='{"zipcode":"123", "detail":"용인"}'
+http localhost:8083/customers id="park@naver.com" address[zipcode]="123" address[detail]="용인"
 ```
 ![8083 유저 등록](https://user-images.githubusercontent.com/59447401/147196678-eab14a04-e885-4922-8b9c-9d8f3fdb6a9c.png)
 
@@ -79,8 +79,8 @@ http :8083/items
 ```
 - 자동으로 등록이 안되었다면 수동으로 등록을 해줘야 한다 (두마리를 등록해본다):
 ```javascript
-http "http://localhost:8083/items" apperance=1 health=2 price:='{"currency": "KR_WON", "amount":100000}'
-http "http://localhost:8083/items" apperance=2 health=1 price:='{"currency": "EURO", "amount":200}'
+http "http://localhost:8083/items" apperance=1 health=2 price[currency]="KR_WON" price[amount]="100000"
+http "http://localhost:8083/items" apperance=2 health=1 price[currency]="EURO" price[amount]=200
 ```
 
 - 아까 등록한 두마리를 입양해본다. 이때는 한번의 Aggregate 이므로 한번에 등록이 되어야 한다. 
