@@ -89,3 +89,18 @@ http :8083/cartItems customer="http://localhost:8083/customers/park@naver.com" i
 ```
 ![8083 입양](https://user-images.githubusercontent.com/59447401/147196784-6281b8a0-822a-47cb-9ef1-7632b2d509be.png)
 
+
+
+
+
+# Kafka Event 송출/수신과 관련된 파일들
+## 설정관련
+- pom.xml
+- Application.java 의 @EnableBinding(KafkaProcessor.java)
+- kafka/KafkaProcessor.java
+- resources/application.yaml
+## 구현관련
+- AbstractEvent.java
+- PolicyHandler.java
+- domain event 들: PetReserved.java / PetUpdated.java
+

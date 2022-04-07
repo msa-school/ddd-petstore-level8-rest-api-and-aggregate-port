@@ -15,6 +15,7 @@ public class Item {
     Long id;
     int appearance;
     int health;
+    Long petId;
 
     @Embedded
     Money price;
@@ -41,9 +42,17 @@ public class Item {
 
     public void setPrice(Money price) {
         this.price = price;
+   }
+
+    public Long getPetId() {
+        return petId;
     }
 
-    
+    public void setPetId(Long petId) {
+        this.petId = petId;
+    } 
+
+        
 
 
 }

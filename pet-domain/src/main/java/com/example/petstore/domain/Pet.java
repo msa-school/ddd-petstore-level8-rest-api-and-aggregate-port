@@ -61,6 +61,20 @@ public abstract class Pet {     // Entity. Domain Class.
         petReserved.setType(this.getType());
         petReserved.publishAfterCommit();
     }
+
+    @PostUpdate
+    public void onPostUpdate(){
+
+        PetUpdated petUpdated = new PetUpdated();
+        petUpdated.setAppearance(this.getAppearance());
+        petUpdated.setEnergy(this.getEnergy());
+        petUpdated.setId(this.getId());
+        petUpdated.setName(this.getName());
+        petUpdated.setType(this.getType());
+
+        petUpdated.publishAfterCommit();
+
+    }
         
     // List<Listener> listeners = new ArrayList<Listener>();
     // public void addListener(Listener listener) {
