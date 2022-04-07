@@ -23,7 +23,6 @@ public class PetReserved extends AbstractEvent {
         return name;
     }
     public void setName(String name) {
-        if(name==null) throw new IllegalArgumentException("이름은 꼭 들어가야 합니다");
         this.name = name;
     }
 
@@ -39,10 +38,7 @@ public class PetReserved extends AbstractEvent {
     public int getEnergy() {
         return energy;
     }
-    protected void setEnergy(int energy) {
-        if(Math.abs(this.energy - energy) < 3 )
-            this.energy = energy;
-        else
-            throw new IllegalArgumentException("Energy change is too big");
+    public void setEnergy(int energy) {
+        this.energy = energy;
     }
 }

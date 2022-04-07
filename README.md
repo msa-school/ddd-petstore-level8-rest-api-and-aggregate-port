@@ -1,8 +1,23 @@
 # ddd-petstore
 
 ## 유틸리티 설치(httpie)
+
+- httpie (curl / POSTMAN 대용)
 ```
 pip install httpie
+```
+
+- Kafka Download
+```
+wget https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz
+tar -xf kafka_2.13-3.1.0.tgz
+```
+
+- Run Kafka
+```
+cd kafka_2.13-3.1.0/
+bin/zookeeper-server-start.sh config/zookeeper.properties &
+bin/kafka-server-start.sh config/server.properties &
 ```
 
 ## Pet Service 기동
