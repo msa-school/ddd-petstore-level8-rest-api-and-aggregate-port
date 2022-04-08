@@ -1,4 +1,4 @@
-package com.example.petstore;
+package com.example.petstore.domain;
 
 
 import com.example.petstore.domain.*;

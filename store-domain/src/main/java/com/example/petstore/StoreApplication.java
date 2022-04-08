@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @EnableAspectJAutoProxy
 @EnableBinding(KafkaProcessor.class)
-public class Application {
+public class StoreApplication {
 	public static ApplicationContext applicationContext;
 	public static void main(String[] args) {
-		applicationContext = SpringApplication.run(Application.class, args);
+		applicationContext = SpringApplication.run(StoreApplication.class, args);
 	}
 
 
