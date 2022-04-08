@@ -115,8 +115,8 @@ mvn spring-boot:run
 서비스가 기동된 후, gateway 로 단일화된 주소로 접근이 가능함을 확인합니다:
 
 ```
-http localhost:8080/pets         # service url of pet domain
-http localhost:8080/cartItems    # service url of store domain
+http localhost:8088/pets         # service url of pet domain
+http localhost:8088/cartItems    # service url of store domain
 ```
 
 # Docker 배포 관련
@@ -126,6 +126,26 @@ http localhost:8080/cartItems    # service url of store domain
 ```
 cd pet-store
 mvn package -B
-docker build -t <registry 주소>/pet:v1 .
-docker run <registry 주소>/pet:v1
+docker build -t pet:v1 .
+docker run pet:v1
+```
+
+
+# Kubernetes 에 kafka 설치하기
+
+## Helm 
+
+Helm(패키지 인스톨러) 설치
+- Helm 3.x 설치(권장)
+```bash
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
+chmod 700 get_helm.sh
+./get_helm.sh
+```
+
+## Kafka 를 helm 으로 설치
+```bash
+helm repo update
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install my-kafka bitnami/kafka
 ```

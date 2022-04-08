@@ -9,7 +9,7 @@ spring:
     gateway:
       routes:
         - id: pet
-          uri: http://localhost:8080
+          uri: http://localhost:8081
           predicates:
             - Path=/pets/**, /cats/**, /dogs/** 
         - id: store
