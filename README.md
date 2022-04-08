@@ -20,6 +20,12 @@ bin/zookeeper-server-start.sh config/zookeeper.properties &
 bin/kafka-server-start.sh config/server.properties &
 ```
 
+- Kafka Event 컨슈밍하기 (별도 터미널)
+```
+cd kafka_2.13-3.1.0/
+bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic petstore
+```
+
 ## Pet Service 기동
 
 - 새로운 터미널을 열어 Pet 서비스를 기동한다. (8081)
