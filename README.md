@@ -22,7 +22,7 @@ bin/kafka-server-start.sh config/server.properties &
 
 ## Pet Service 기동
 
-- 새로운 터미널을 열어 Pet 서비스를 기동한다. (8080)
+- 새로운 터미널을 열어 Pet 서비스를 기동한다. (8081)
 ```
 cd pet-domain
 mvn install
@@ -31,28 +31,28 @@ mvn spring-boot:run
 - 새로운 터미널을 열어 pet을 한 마리 등록해 줍니다.
 
 ```javasciprt
-http :8080/cats name="몽이" energy=1
+http :8081/cats name="몽이" energy=1
 ```
 
 - Pet 에 먹이를 한번 줘봅니다.
 ```javascript
-http PUT "http://localhost:8080/cats/1/feed"
+http PUT "http://localhost:8081/cats/1/feed"
 ```
 
 - Pet 의 에너지가 상승함을 확인합니다.
 ```javascript
-http "http://localhost:8080/cats/1"
+http "http://localhost:8081/cats/1"
 ```
 
 - Pet 의 털도 한번 가꿔봅니다:
 ```javascript
-http PUT "http://localhost:8080/cats/1/groom"
+http PUT "http://localhost:8081/cats/1/groom"
 ```
 
 
 - Pet 의 외모지수가 상승함을 확인합니다.
 ```javascript
-http "http://localhost:8080/cats/1"
+http "http://localhost:8081/cats/1"
 ```
 <br>
 
@@ -104,3 +104,28 @@ http :8083/cartItems customer="http://localhost:8083/customers/park@naver.com" i
 - PolicyHandler.java
 - domain event 들: PetReserved.java / PetUpdated.java
 
+
+
+# Gateway (8080)
+
+```
+cd gateway
+mvn spring-boot:run
+```
+서비스가 기동된 후, gateway 로 단일화된 주소로 접근이 가능함을 확인합니다:
+
+```
+http localhost:8080/pets         # service url of pet domain
+http localhost:8080/cartItems    # service url of store domain
+```
+
+# Docker 배포 관련
+
+각 프로젝트 내에는 Dockerfile 이 포함되어있습니다. 이것을 빌드하기 위해서는 우선 maven 빌드로 jar 를 만들어준 후, jar 를 Dockerfile 로 다시 빌드해줍니다:
+
+```
+cd pet-store
+mvn package -B
+docker build -t <registry 주소>/pet:v1 .
+docker run <registry 주소>/pet:v1
+```
