@@ -1,5 +1,10 @@
 # ddd-petstore
 
+## GidPod 접속
+https://gitpod.io/#https://github.com/event-storming/ddd-petstore
+
+- 접속 후 "Terminal > Terminal열기"
+
 ## 유틸리티 설치(httpie)
 
 - httpie (curl / POSTMAN 대용)
