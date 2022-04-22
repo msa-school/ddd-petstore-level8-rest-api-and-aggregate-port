@@ -14,12 +14,15 @@ mvn spring-boot:run
 ```
 - 새로운 터미널을 열어 pet을 한 마리 등록해 줍니다.
 
-```javasciprt
-http :8081/cats name="몽이" energy=1
+```
+http POST :8081/cats name="몽이" energy=1
+http GET :8080/cats/1
+http PATCH :8080/cats/1 energy=2
+# http DELETE :8080/cats/1 
 ```
 
 - Pet 에 먹이를 한번 줘봅니다.
-```javascript
+```
 http PUT "http://localhost:8081/cats/1/feed"
 ```
 
