@@ -11,7 +11,6 @@ mvn spring-boot:run
 
 ## 미션: pet 의 각 기능들을 호출하는 REST API 를 만드시오
 
-```
 - 새로운 터미널을 열어 pet을 한 마리 등록해 줍니다.
 
 ```
