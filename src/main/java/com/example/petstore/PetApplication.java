@@ -50,7 +50,7 @@ public class PetApplication {
 
 		Pet thePet = petRepository.findById(petId).get();
 
-		thePet.eat();
+		thePet.eat(); 
 
 		petRepository.save(thePet);
 
