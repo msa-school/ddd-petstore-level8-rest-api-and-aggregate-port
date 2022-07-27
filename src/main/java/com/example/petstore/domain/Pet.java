@@ -66,11 +66,7 @@ public abstract class Pet {     // Entity. Domain Class.
     public void eat(){
         energy += 1;
 
-        // if(listeners!=null){
-        //     for(int i = 0; i<listeners.size(); i++){
-        //         listeners.get(i).energyChanged(energy);
-        //     }
-        // }
+		if(energy > 10) throw new TooMuchEnergyException();
     }
 
     public void sleep(){
