@@ -1,6 +1,5 @@
 # 시작하기
 
-check out the video:
 [![Video](https://img.youtube.com/vi/L5kvIZjFNJc/0.jpg)](https://www.youtube.com/watch?v=L5kvIZjFNJc)
 
 ## Base Project 다운로드 및 실행
