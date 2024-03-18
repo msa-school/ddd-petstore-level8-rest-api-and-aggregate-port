@@ -67,6 +67,8 @@ http "http://localhost:8081/cats/1"
 ```
 http PUT  "http://localhost:8081/pets/2/groom"
 ```
+> 그루밍이 불가능한 Pet 입니다
+
 어라, 강아지는 왜 그루밍이 안될까요?
 
 
