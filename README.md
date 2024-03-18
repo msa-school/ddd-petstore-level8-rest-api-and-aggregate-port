@@ -43,6 +43,34 @@ http PUT "http://localhost:8081/cats/1/groom"
 http "http://localhost:8081/cats/1"
 ```
 
+# 같은 방법으로 강아지를 등록해서 밥을 줘봅니다:
+
+```
+ http "http://localhost:8081/dogs" name="멍멍" energy=1
+ http PUT  "http://localhost:8081/pets/2/feed"
+ http "http://localhost:8081/pets/2"
+ http PUT  "http://localhost:8081/pets/2/feed"
+ http "http://localhost:8081/dogs/2"
+```
+어라, 밥을 줄때마다 에너지가 2씩 증가합니다.
+
+고양이 한테 다시 줘봅니다:
+``` 
+ http PUT "http://localhost:8081/pets/1/feed"
+ http "http://localhost:8081/pets/1"
+```
+어라, 고양이는 1씩 증가하는데...
+
+왜 그럴까요?
+
+## 강아지에게 그루밍도 해 봅니다.
+```
+http PUT  "http://localhost:8081/pets/2/groom"
+```
+어라, 강아지는 왜 그루밍이 안될까요?
+
+
+
 ## 다음: 도메인 영역의 분리와 연동
 - Pet <-> Store 도메인의 분리 (Bounded Context)
 - 도메인간 연동 (Context Mapping, Anti-corruption)
